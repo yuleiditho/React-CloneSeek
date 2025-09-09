@@ -3,16 +3,22 @@ import { z } from "zod";
 import { Paperclip, Smile, SendHorizontal, Plus, Trash2 } from "lucide-react";
 import { useOllamaHook } from "../api/useOllamaHook"; 
 
-
 const messageSchema = z
   .string()
   .min(3, "El mensaje debe tener al menos 3 caracteres")
   .max(200, "El mensaje no puede tener más de 200 caracteres");
 
-export default function App() {
+export default function Chat() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const { response, loading, error: ollamaError, sendMessage, clearConversation, conversation } = useOllamaHook();
+  const { 
+    loading, 
+    error: ollamaError, 
+    sendMessage, 
+    clearConversation, 
+    conversation,
+    partialResponse 
+  } = useOllamaHook();
 
   const handleSubmit = () => {
     try {
@@ -96,7 +102,7 @@ export default function App() {
               ))}
               {loading && (
                 <div className="p-4 rounded-lg bg-gray-700 max-w-3xl">
-                  <p>Pensando...</p>
+                  <p>{partialResponse || "Pensando..."}</p>
                 </div>
               )}
             </div>
