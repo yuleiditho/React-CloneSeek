@@ -1,12 +1,21 @@
-# React + Vite
+# Proyecto de Chat con Ollama - Integraciones
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto se divide en varias partes, cada una enfocada en una integración clave para construir una aplicación de chat moderna y funcional.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Parte 1: React Hook Form y Validación de Formularios Avanzada
+ 
+Implementación de un formulario de chat con validación avanzada utilizando **React Hook Form** y **Zod**. Se diseña una interfaz de usuario moderna con **Tailwind CSS**, incorporando un tema oscuro y componentes responsivos.
 
-## Expanding the ESLint configuration
+## Parte 2: Consumo de APIs (useEffect)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Desarrollo del custom hook `useOllamaHook` para la comunicación con la API de Ollama. Se gestiona el estado de carga, errores y el streaming de respuestas en tiempo real mediante **useEffect**.
+
+## Parte 3: State Management con useContext
+
+Gestión del estado global de la aplicación usando **React Context API**. Se implementa un sistema centralizado para manejar el historial de conversaciones, estados de carga y respuestas parciales.
+
+## Parte 4: El servidor
+ 
+Implementación de un servidor básico con **Express** que actúa como intermediario entre el frontend y la API de Ollama. 
+
